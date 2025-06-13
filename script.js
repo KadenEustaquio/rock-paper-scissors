@@ -22,67 +22,73 @@ function getHumanChoice() {
 
 function playRound(humanChoice, computerChoice) {
         switch (humanChoice) {
-            case "Rock":
-                if (computerChoice == "Rock") {
-                    console.log("It's a Tie!");
+            case "rock":
+                console.log("Rock Played")
+                if (computerChoice === "Rock") {
+                    console.log("Tie")
+                    log.textContent = "It's a Tie!";
                 }
-                else if (computerChoice == "Paper") {
-                    console.log("You Lose! Paper beats Rock.")
+                else if (computerChoice === "Paper") {
+                    console.log("Lose")
+                    log.textContent = "You Lose! Paper beats Rock.";
                     computerScore++;
                 }
-                else if (computerChoice == "Scissors") {
-                    console.log("You Win! Rock beats Scissors.")
+                else if (computerChoice === "Scissors") {
+                    console.log("Win")
+                    log.textContent = "You Win! Rock beats Scissors.";
                     humanScore++;
                 }
                 break;
-            case "Paper":
+            case "paper":
+                console.log("Paper Played")
                 if (computerChoice == "Paper") {
-                    console.log("It's a Tie!");
+                    log.textContent = "It's a Tie!";
                 }
                 else if (computerChoice == "Scissors") {
-                    console.log("You Lose! Scissors beats Paper.")
+                    log.textContent = "You Lose! Scissors beats Paper.";
                     computerScore++;
                 }
                 else if (computerChoice == "Rock") {
-                    console.log("You Win! Paper beats Rock.")
+                    log.textContent = "You Win! Paper beats Rock.";
                     humanScore++;
                 }
                 break;
-            case "Scissors":
+            case "scissors":
+                console.log("Scissors Played")
                 if (computerChoice == "Scissors") {
-                    console.log("It's a Tie!");
+                    log.textContent = "It's a Tie!";
                 }
                 else if (computerChoice == "Rock") {
-                    console.log("You Lose! Rock beats Scissors.")
+                    log.textContent = "You Lose! Rock beats Scissors.";
                     computerScore++;
                 }
                 else if (computerChoice == "Paper") {
-                    console.log("You Win! Scissors beats Paper.")
+                    log.textContent = "You Win! Scissors beats Paper.";
                     humanScore++;
                 }
                 break;
         }
+        if (humanScore === 5) {
+            log.textContent = "You win! Reload this page to play again!";
+        }
+        if (computerScore === 5) {
+            log.textContent = "You lose! Reload this page to play again!";
+        }
     }
 
-    
-
-function playGame() {
-    
-    for (i = 0; i < 5; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-    }
-    if (humanScore > computerScore) {
-        console.log("You win!");
-    }
-    else if (humanScore < computerScore) {
-        console.log("You lose!");
-    }
-    else {console.log("It's a tie!");}
-}
 
 let humanScore = 0, computerScore = 0;
+const buttons = document.querySelectorAll("button")
+const humanResult = document.querySelector("#humanScore")
+const computerResult = document.querySelector("#computerScore")
+const log = document.querySelector("#log");
 
-playGame();
-
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        if (humanScore !== 5 || computerScore !== 5) {
+            playRound(button.id, getComputerChoice());
+        }
+        humanResult.textContent = "Your Score: " + humanScore; 
+        computerResult.textContent = "Computer's Score: " + computerScore;
+    })
+})
