@@ -1,0 +1,224 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: Pokemon-Solid;
+    src: url(pokemonsolid.ttf);
+}
+
+body {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100dvh;}
+
+
+
+.header,
+.footer {
+    background-color: rgb(32, 34, 44);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    padding: 16px;
+}
+
+h1 a {
+    color: rgb(245, 228, 50);
+    font-family: Pokemon-Solid;
+    letter-spacing: 7px;
+    font-size: 48px;
+    width: fit-content;
+    align-self: center;
+}
+
+h2 {
+    color: white;
+    font-family: Pokemon-Solid;
+    letter-spacing: 8px;
+    font-size: 64px;
+    width: fit-content;
+    align-self: center;
+    margin: 16px;
+}
+
+h3 {
+    color: white;
+    font-size: 32px;
+    width: fit-content;
+    align-self: center;
+    margin: 16px;
+}
+
+h4 {
+    color: white;
+    font-size: 28px;
+    width: fit-content;
+    align-self: center;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    background-image: url("./img/background.jpg");
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+.battleground {
+    background-color: rgb(93, 93, 105);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    flex-grow: 1;
+    font-family: Roboto, sans-serif;
+}
+
+.ui {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 16px;
+}
+
+.results {
+    display: flex;
+    align-items: center;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 32px;
+}
+
+.buttons.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 0 1 320px;
+}
+
+button.menu {
+    margin: 16px;
+    padding: 4px;
+    font-size: 24px;
+    height: 48px;
+    width: 640px;
+    justify-content: center;
+    border-radius: 16px;
+    background-color: rgb(74, 74, 185);
+    color: white;
+}
+
+.buttons.battleground {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+li {
+    padding: 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#humanScore,
+#computerScore {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+img {
+    height: 28px;
+    width: auto;
+    margin: 4px;
+}
+
+#humanChoice,
+#computerChoice {
+    height: 144px;
+    width: 144px;
+}
+
+button.battle {
+    margin: 16px;
+    padding: 4px;
+    height: 162px;
+    width: 162px;
+    border-radius: 16px;
+}
+
+.battle > img {
+    width: 140px;
+    height: auto;
+}
+
+.header > img {
+    width: 140px;
+    height: auto;
+}
+
+button#rock {
+    background-image: url("./img/grass.jpg");
+    background-size: cover;
+}
+
+button#paper {
+    background-image: url("./img/volcano.jpg");
+    background-size: cover;
+}
+
+button#scissors {
+    background-image: url("./img/beach.jpg");
+    background-size: cover;
+}
+
+.battle {
+  transition: transform 0.3s ease;
+}
+
+.battle:hover {
+  transform: scale(1.2);
+}
